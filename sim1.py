@@ -47,9 +47,23 @@ def runoff(d, results):
         loser = results[-1]
         print("\nCandidate", loser, "got the least votes.\n")
 
-        for ballot in [b for b in ballots if b[0] == loser]:
-            if ballot[1] in d.keys():
-                d[ballot[1]] += 1
+        count = 1
+        losers = [b for b in ballots if b[0] == loser]
+        print(len(losers), 'losers')
+        print(*losers)
+        for ballot in losers:
+            i = 1
+            while True:
+                print("Ballot", count, "\n", ballot)
+                try:
+                    d[ballot[i]] += 1
+                    print(ballot[i])
+                    break
+                except Exception as e:
+                    print(f'Error: {e}')
+                    i += 1
+                    continue
+            count += 1
 
         del d[loser]
 
@@ -59,7 +73,8 @@ def runoff(d, results):
             print("Candidate", i, "received", d[i], "votes.")
         print("Total:", sum(d.values()))
 
-        runoff(d, results)
+        if len(results) > 1:
+            runoff(d, results)
 
     else:
         print(
