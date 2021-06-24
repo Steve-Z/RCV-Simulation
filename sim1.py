@@ -2,7 +2,9 @@ from itertools import permutations
 from random import choice
 from string import ascii_uppercase
 
-candidates = list(ascii_uppercase)[:5]
+field_size = int(input("How many candidates are running? "))
+
+candidates = list(ascii_uppercase)[:field_size]
 # print(candidates)
 
 possibilities = list(permutations(candidates))
@@ -23,7 +25,8 @@ while count < turnout:
 # print(ballots)
 ballots = [list(b) for b in ballots]
 
-zeroes = [0, 0, 0, 0, 0]
+zeroes = [0]
+zeroes *= field_size
 
 d = dict(zip(candidates, zeroes))
 # print(d)
