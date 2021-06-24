@@ -10,8 +10,7 @@ candidates = list(ascii_uppercase)[:field_size]
 possibilities = list(permutations(candidates))
 # print(possibilities)
 
-turnout = input("How many voters are voting?: ")
-turnout = int(turnout)
+turnout = int(input("How many voters are voting?: "))
 
 ballots = []
 count = 0
@@ -52,7 +51,7 @@ def runoff(d, results, round):
         print("\nCandidate", loser, "got the least votes.\n")
 
         round += 1
-        count = 1
+        # count = 1
         losers = [b for b in ballots if b[0] == loser]
         # print(len(losers), 'losers\n')
         # print(*losers, sep='\n')
@@ -72,7 +71,7 @@ def runoff(d, results, round):
                     # print(f'Error: {e}')
                     i += 1
                     continue
-            count += 1
+            # count += 1
 
         del d[loser]
 
