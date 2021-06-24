@@ -36,31 +36,37 @@ for key in d.keys():
 
 results = sorted(d, key=lambda x: d[x], reverse=True)
 
+print("ROUND 1\n")
 for i in results:
     print("Candidate", i, "received", d[i], "votes.")
 print("Total:", sum(d.values()))
 
 
-def runoff(d, results):
+def runoff(d, results, round):
     # Allocate 2nd choices for last place candidate
     if (d[results[0]] / turnout) <= 0.5:
         loser = results[-1]
         print("\nCandidate", loser, "got the least votes.\n")
 
+        round += 1
         count = 1
         losers = [b for b in ballots if b[0] == loser]
-        print(len(losers), 'losers')
-        print(*losers)
+        # print(len(losers), 'losers\n')
+        # print(*losers, sep='\n')
+        print("\nROUND", round, "\n")
         for ballot in losers:
             i = 1
             while True:
-                print("Ballot", count, "\n", ballot)
+                # print("Ballot", count, "\n", ballot)
                 try:
                     d[ballot[i]] += 1
-                    print(ballot[i])
+                    # print(ballot[i])
+                    ballots.append(ballot[i:])
+                    ballots.remove(ballot)
+                    # print("Replacing", ballot, "with", ballot[i:])
                     break
-                except Exception as e:
-                    print(f'Error: {e}')
+                except Exception:  # as e:
+                    # print(f'Error: {e}')
                     i += 1
                     continue
             count += 1
@@ -74,7 +80,7 @@ def runoff(d, results):
         print("Total:", sum(d.values()))
 
         if len(results) > 1:
-            runoff(d, results)
+            runoff(d, results, round)
 
     else:
         print(
@@ -87,4 +93,4 @@ def runoff(d, results):
     return None
 
 
-runoff(d, results)
+runoff(d, results, 1)
