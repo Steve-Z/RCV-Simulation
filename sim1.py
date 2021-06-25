@@ -12,6 +12,10 @@ possibilities = list(permutations(candidates))
 
 turnout = int(input("How many voters are voting?: "))
 
+# Make turnout an odd number to avoid ties
+if turnout % 2 == 0:
+    turnout += 1
+
 ballots = []
 count = 0
 
