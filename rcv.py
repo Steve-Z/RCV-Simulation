@@ -14,6 +14,9 @@ class RCV:
         Keyword arguments:
         fieldsize -- How many candidates are running (default 5)
         turnout -- How many ballots are being cast (default 1000)
+
+        This method will add 5 single-choice ballots.
+        Length of ballot list will be turnout + 5.
         """
 
         candidates = list(ascii_uppercase)[:fieldsize]
@@ -32,8 +35,8 @@ class RCV:
         return ballots
 
     def count(self, ballots):
-        firsts = [b[0] for b in ballots]
-        c = Counter(firsts)
+        first_choices = [b[0] for b in ballots]
+        c = Counter(first_choices)
         d = dict(c)
         first = c.most_common()[0]
         last = c.most_common()[-1]
@@ -43,13 +46,12 @@ class RCV:
         self,
         first=None,
         last=None,
-        turnout=None,
         rnd=1,
         d=None,
         ballots=None,
     ):
         """Allocate 2nd choices for last place candidate"""
-        if (d[first] / turnout) <= 0.5:
+        if (d[first] / len(ballots)) <= 0.5:
             # print("\nCandidate", last, "got the least votes.\n")
             # print("\nRound", rnd, "\n")
 
@@ -90,7 +92,6 @@ class RCV:
                 self.runoff(
                     first=first,
                     last=last,
-                    turnout=turnout,
                     rnd=rnd,
                     d=d,
                     ballots=ballots
@@ -101,7 +102,7 @@ class RCV:
                 "Candidate",
                 first,
                 "has won with a majority:",
-                str(d[first] * 100 / turnout),
+                str(d[first] * 100 / len(ballots)),
                 "%.")
 
         return d
