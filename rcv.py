@@ -6,13 +6,20 @@ from collections import Counter
 
 class RCV:
     DEFAULT_FS = 5
+    DEFAULT_RS = 5
     DEFAULT_TO = 1000
 
-    def ballots(self, fieldsize=DEFAULT_FS, turnout=DEFAULT_TO):
+    def ballots(
+        self,
+        fieldsize=DEFAULT_FS,
+        ranksize=DEFAULT_RS,
+        turnout=DEFAULT_TO
+    ):
         """Randomly generate ballots
 
         Keyword arguments:
         fieldsize -- How many candidates are running (default 5)
+        ranksize -- How many candidates can be ranked (default 5)
         turnout -- How many ballots are being cast (default 1000)
 
         This method will add 5 single-choice ballots.
@@ -21,7 +28,7 @@ class RCV:
 
         candidates = list(ascii_uppercase)[:fieldsize]
 
-        possibilities = list(permutations(candidates))
+        possibilities = list(permutations(candidates, ranksize))
 
         # Generate random ballots
         ballots = list(choices(possibilities, k=turnout))
