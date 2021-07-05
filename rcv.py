@@ -57,7 +57,7 @@ class RCV:
         """Allocate 2nd choices for last place candidate"""
         if (d[first] / len(ballots)) <= 0.5:
             # print("\nCandidate", last, "got the least votes.\n")
-            # print("\nRound", rnd, "\n")
+            print("\nROUND", rnd, "\n")
 
             rnd += 1
 
