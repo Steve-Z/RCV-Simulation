@@ -70,25 +70,25 @@ class RCV:
 
             losers = [b for b in ballots if b[0] == last]
 
-            for ballot in losers:
-                i = 1
-                while len(ballot) > 1:
-                    try:
-                        d[ballot[i]] += 1
-                        ballots.append(ballot[i:])
-                        break
-                    except Exception:
-                        i += 1
-                        continue
-                ballots.remove(ballot)
+            # for ballot in losers:
+            #     i = 1
+            #     while len(ballot) > 1:
+            #         try:
+            #             d[ballot[i]] += 1
+            #             ballots.append(ballot[i:])
+            #             break
+            #         except Exception:
+            #             i += 1
+            #             continue
+            #     ballots.remove(ballot)
 
             # Alternative method
-            # for ballot in losers:
-            #     ballots.remove(ballot)
-            #     del ballot[0]
-            #     if ballot and ballot[0] in d.keys():
-            #         d[ballot[0]] += 1
-            #         ballots.append(ballot)
+            for ballot in losers:
+                ballots.remove(ballot)
+                del ballot[0]
+                if ballot and ballot[0] in d.keys():
+                    d[ballot[0]] += 1
+                    ballots.append(ballot)
 
             del d[last]
 
