@@ -2,7 +2,7 @@ from rcv import RCV
 
 r = RCV()
 
-ballots = r.ballots(turnout=10000)
+ballots = r.ballots(fieldsize=10, turnout=10000)
 
 round1 = r.count(ballots)
 
