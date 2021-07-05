@@ -96,8 +96,8 @@ class RCV:
             first = tally[1]
             last = tally[2]
 
-            for i in d.keys():
-                print("Candidate", i, "received", d[i], "votes.")
+            for k in d.keys():
+                print("Candidate", k, "received", d[k], "votes.")
             print("Total:", sum(d.values()))
 
             if len(d.keys()) > 1:
