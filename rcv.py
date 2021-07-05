@@ -35,6 +35,10 @@ class RCV:
         return ballots
 
     def count(self, ballots):
+        """Counts first round votes.
+
+        Returns dictionary of results, first and last place candidates.
+        """
         first_choices = [b[0] for b in ballots]
         c = Counter(first_choices)
         d = dict(c)
@@ -71,12 +75,13 @@ class RCV:
                         continue
                 ballots.remove(ballot)
 
-#             for ballot in losers:
-#                 ballots.remove(ballot)
-#                 del ballot[0]
-#                 if ballot and ballot[0] in d.keys():
-#                     d[ballot[0]] += 1
-#                     ballots.append(ballot)
+            # Alternative method
+            # for ballot in losers:
+            #     ballots.remove(ballot)
+            #     del ballot[0]
+            #     if ballot and ballot[0] in d.keys():
+            #         d[ballot[0]] += 1
+            #         ballots.append(ballot)
 
             del d[last]
 
