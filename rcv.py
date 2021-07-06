@@ -5,15 +5,15 @@ from collections import Counter
 
 
 class RCV:
-    DEFAULT_FS = 5
-    DEFAULT_RS = 5
-    DEFAULT_TO = 1000
+    # DEFAULT_FS = 5
+    # DEFAULT_RS = 5
+    # DEFAULT_TO = 1000
 
     def ballots(
         self,
-        fieldsize=DEFAULT_FS,
-        ranksize=DEFAULT_RS,
-        turnout=DEFAULT_TO
+        fieldsize=5,
+        ranksize=7,
+        turnout=1000
     ):
         """Randomly generate ballots
 
@@ -25,6 +25,8 @@ class RCV:
         This method will add 5 single-choice ballots.
         Length of ballot list will be turnout + 5.
         """
+        if not turnout % 2:
+            turnout += 1
 
         candidates = list(ascii_uppercase)[:fieldsize]
 
@@ -73,31 +75,14 @@ class RCV:
             for ballot in losers:
                 ballots.remove(ballot)
                 i = 0
-                while len(ballot) > 1:
+                while i < len(ballot) > 1:
                     i += 1
-                    if i < len(ballot):
-                        try:
-                            d[ballot[i]] += 1
-                            ballots.append(ballot[i:])
-                            break
-                        except Exception:
-                            # i += 1
-                            continue
-                    else:
+                    try:
+                        d[ballot[i]] += 1
+                        ballots.append(ballot[i:])
                         break
-                # ballots.remove(ballot)
-
-            # Alternative method
-            # for ballot in losers:
-            #     ballots.remove(ballot)
-            #     del ballot[0]
-            #     if ballot:
-            #         try:
-            #             d[ballot[0]] += 1
-            #             # ballots.append(ballot)
-            #         except Exception:
-            #             pass
-            #         ballots.append(ballot)
+                    except Exception:
+                        continue
 
             del d[last]
 
