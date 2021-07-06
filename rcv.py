@@ -11,8 +11,8 @@ class RCV:
 
     def ballots(
         self,
-        fieldsize=5,
-        ranksize=7,
+        fieldsize=7,
+        ranksize=5,
         turnout=1000
     ):
         """Randomly generate ballots
