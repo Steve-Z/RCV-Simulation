@@ -3,7 +3,7 @@ from itertools import filterfalse
 
 r = RCV()
 
-ballots = r.ballots(fieldsize=7, turnout=1001)
+ballots = r.ballots()
 originals = ballots[:]
 
 round1 = r.count(ballots)
@@ -15,9 +15,10 @@ for k, v in round1[0].items():
 
 print("Total:", sum(round1[0].values()))
 
-d = r.runoff(first=round1[1], last=round1[2], d=round1[0], rnd=2, ballots=ballots)
-print(d.keys())
-print(len(originals))
+d = r.runoff(
+    first=round1[1], last=round1[2], d=round1[0], rnd=2, ballots=ballots)
+print(*list(d.keys()), "were the finalists.")
+print(len(originals), "original ballots cast.")
 
 
 def uncounted(alist):
@@ -29,5 +30,5 @@ def uncounted(alist):
 
 
 wasted = list(filterfalse(uncounted, originals))
-print(wasted)
-print(len(wasted))
+
+print(len(wasted), "voters cast ballots without any finalists.")
