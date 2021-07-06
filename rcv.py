@@ -22,7 +22,7 @@ class RCV:
         ranksize -- How many candidates can be ranked (default 5)
         turnout -- How many ballots are being cast (default 1000)
 
-        This method will add 5 single-choice ballots.
+        Adds 1 unranked single-choice ballot for each candidate.
         Length of ballot list will be turnout + 5.
         """
         if not turnout % 2:
@@ -38,7 +38,7 @@ class RCV:
         ballots = [list(b) for b in ballots]
 
         # Test single choice, i.e., not fully ranked ballots
-        singles = [['A'], ['B'], ['C'], ['D'], ['E']]
+        singles = [list(c) for c in candidates]
         ballots = ballots + singles
 
         return ballots
