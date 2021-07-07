@@ -3,7 +3,7 @@ from itertools import filterfalse
 
 r = RCV()
 
-ballots = r.ballots(turnout=10000)
+ballots = r.ballots()
 originals = ballots[:]
 
 round1 = r.count(ballots)
