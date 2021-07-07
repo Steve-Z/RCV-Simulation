@@ -7,13 +7,13 @@ from collections import Counter
 class RCV:
     # DEFAULT_FS = 5
     # DEFAULT_RS = 5
-    # DEFAULT_TO = 1000
+    # DEFAULT_TO = 10000
 
     def ballots(
         self,
         fieldsize=7,
         ranksize=5,
-        turnout=1000
+        turnout=10000
     ):
         """Randomly generate ballots
 
@@ -63,7 +63,10 @@ class RCV:
         d=None,
         ballots=None,
     ):
-        """Allocate 2nd choices for last place candidate"""
+        """Allocate 2nd choices for last place candidate.
+
+        Runs recursively until there is a majority winner.
+        """
         if (d[first] / len(ballots)) <= 0.5:
             # print("\nCandidate", last, "got the least votes.\n")
             print("\nROUND", rnd, "\n")
@@ -109,6 +112,6 @@ class RCV:
                 first,
                 "has won with a majority:",
                 str(d[first] * 100 / len(ballots)),
-                "%.")
+                "%.\n")
 
         return d
