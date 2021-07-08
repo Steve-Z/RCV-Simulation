@@ -1,6 +1,18 @@
 from rcv import RCV
 from itertools import filterfalse
 
+""" This is a sample script using the RCV class and its methods
+to simulate a ranked choice voting election.
+
+This example uses the default arguments of the ballots method:
+fieldsize = 7 (number of candidates)
+ranksize = 5  (number of choices a voter can rank)
+turnout = 10000  (number of voters/ballots)
+
+You can easily change any or all of these by using keyword arguments
+in the ballots method, e.g., r.ballots(turnout=20000). """
+
+
 r = RCV()
 
 ballots = r.ballots()
