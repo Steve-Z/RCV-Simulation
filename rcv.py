@@ -68,7 +68,7 @@ class RCV:
         Runs recursively until there is a majority winner.
         """
         if (d[first] / len(ballots)) <= 0.5:
-            # print("\nCandidate", last, "got the least votes.\n")
+            print("\nCandidate", last, "got the least votes.\n")
             print("\nROUND", rnd, "\n")
 
             rnd += 1
