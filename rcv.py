@@ -93,13 +93,13 @@ class RCV:
             # d = tally[0]
             # first = tally[1]
             # last = tally[2]
-            d = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
-            first = list(d)[0]
-            last = list(d)[-1]
+            e = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
+            first = list(e)[0]
+            last = list(e)[-1]
 
-            for k, v in d.items():
+            for k, v in e.items():
                 print("Candidate", k, "received", v, "votes.")
-            print("Total:", sum(d.values()))
+            print("Total:", sum(e.values()))
 
             if len(d.keys()) > 1:
                 self.runoff(
