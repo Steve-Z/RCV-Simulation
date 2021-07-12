@@ -29,7 +29,8 @@ print("Total:", sum(round1[0].values()))
 
 d = r.runoff(
     first=round1[1], last=round1[2], d=round1[0], rnd=2, ballots=ballots)
-print(', '.join(list(d.keys())), "were the finalists.")
+print(d)
+print(', '.join(list(d)), "were the finalists.")
 print(len(originals), "first-round ballots cast.")
 
 
