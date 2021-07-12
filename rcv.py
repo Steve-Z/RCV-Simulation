@@ -50,10 +50,10 @@ class RCV:
         """
         first_choices = [b[0] for b in ballots]
         c = Counter(first_choices)
-        d = dict(c)
-        first = c.most_common()[0]
-        last = c.most_common()[-1]
-        return d, first[0], last[0]
+        d = dict(c.most_common())
+        first = list(d)[0]
+        last = list(d)[-1]
+        return d, first, last
 
     def runoff(
         self,
@@ -90,6 +90,7 @@ class RCV:
             del d[last]
 
             tally = self.count(ballots)
+            d = tally[0]
             first = tally[1]
             last = tally[2]
 
