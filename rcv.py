@@ -117,5 +117,5 @@ class RCV:
                 "has won with a majority:",
                 str(d[first] * 100 / len(ballots)),
                 "%.\n")
-            print(d)
+
         return d
