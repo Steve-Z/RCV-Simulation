@@ -89,10 +89,13 @@ class RCV:
 
             del d[last]
 
-            tally = self.count(ballots)
+            # tally = self.count(ballots)
             # d = tally[0]
-            first = tally[1]
-            last = tally[2]
+            # first = tally[1]
+            # last = tally[2]
+            d = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
+            first = list(d)[0]
+            last = list(d)[-1]
 
             for k, v in d.items():
                 print("Candidate", k, "received", v, "votes.")
@@ -114,5 +117,5 @@ class RCV:
                 "has won with a majority:",
                 str(d[first] * 100 / len(ballots)),
                 "%.\n")
-
+            print(d)
         return d
