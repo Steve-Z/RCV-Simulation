@@ -89,10 +89,7 @@ class RCV:
 
             del d[last]
 
-            # tally = self.count(ballots)
-            # d = tally[0]
-            # first = tally[1]
-            # last = tally[2]
+            # Need a new variable 'e'; re-declaring 'd' causes bug.
             e = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
             first = list(e)[0]
             last = list(e)[-1]
