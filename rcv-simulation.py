@@ -5,7 +5,7 @@ from itertools import filterfalse
 to simulate a ranked choice voting election.
 
 This example uses the default arguments of the ballots method:
-fieldsize = 7 (number of candidates)
+fieldsize = 5 (number of candidates)
 ranksize = 5  (number of choices a voter can rank)
 turnout = 10000  (number of voters/ballots)
 

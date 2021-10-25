@@ -5,13 +5,10 @@ from collections import Counter
 
 
 class RCV:
-    # DEFAULT_FS = 5
-    # DEFAULT_RS = 5
-    # DEFAULT_TO = 10000
 
     def ballots(
         self,
-        fieldsize=7,
+        fieldsize=5,
         ranksize=5,
         turnout=10000
     ):
@@ -23,9 +20,9 @@ class RCV:
         turnout -- How many ballots are being cast (default 1000)
 
         Adds 1 unranked single-choice ballot for each candidate.
-        Length of ballot list will be turnout + 5.
+        Length of ballot list will be turnout + fieldsize.
         """
-        if not turnout % 2:
+        if not (turnout + fieldsize) % 2:
             turnout += 1
 
         candidates = list(ascii_uppercase)[:fieldsize]
