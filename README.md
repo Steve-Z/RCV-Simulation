@@ -11,7 +11,7 @@ This is a sample script using the RCV class and its methods
 to simulate a ranked choice voting election.
 
 This example uses the default arguments of the ballots method:
-fieldsize = 7 (number of candidates)
+fieldsize = 5 (number of candidates)
 ranksize = 5  (number of choices a voter can rank)
 turnout = 10000  (number of voters/ballots)
 
@@ -24,72 +24,45 @@ Running the script with defaults will yield the following to your `stdout`:
 ```
 ROUND 1
 
-Candidate F received 1505 first-choice votes
-Candidate G received 1452 first-choice votes
-Candidate A received 1441 first-choice votes
-Candidate D received 1419 first-choice votes
-Candidate C received 1409 first-choice votes
-Candidate B received 1400 first-choice votes
-Candidate E received 1382 first-choice votes
-Total: 10008
-
-Candidate E got the least votes.
-
-
-ROUND 2 
-
-Candidate F received 1744 votes.
-Candidate G received 1703 votes.
-Candidate D received 1659 votes.
-Candidate A received 1637 votes.
-Candidate B received 1637 votes.
-Candidate C received 1627 votes.
-Total: 10007
-
-Candidate C got the least votes.
-
-
-ROUND 3 
-
-Candidate F received 2086 votes.
-Candidate G received 2029 votes.
-Candidate D received 1979 votes.
-Candidate B received 1967 votes.
-Candidate A received 1945 votes.
-Total: 10006
-
-Candidate A got the least votes.
-
-
-ROUND 4 
-
-Candidate F received 2595 votes.
-Candidate G received 2514 votes.
-Candidate D received 2458 votes.
-Candidate B received 2438 votes.
+Candidate E received 2085 first-choice votes
+Candidate C received 2025 first-choice votes
+Candidate B received 2005 first-choice votes
+Candidate A received 1997 first-choice votes
+Candidate D received 1893 first-choice votes
 Total: 10005
-
-Candidate B got the least votes.
-
-
-ROUND 5 
-
-Candidate F received 3375 votes.
-Candidate G received 3321 votes.
-Candidate D received 3308 votes.
-Total: 10004
 
 Candidate D got the least votes.
 
 
-ROUND 6 
+ROUND 2 
 
-Candidate G received 4766 votes.
-Candidate F received 4756 votes.
-Total: 9522
-Candidate G has won with a majority: 50.05250997689561 %.
+Candidate E received 2538 votes.
+Candidate C received 2512 votes.
+Candidate A received 2494 votes.
+Candidate B received 2460 votes.
+Total: 10004
 
-F, G were the finalists.
-10008 first-round ballots cast.
-486 voters cast ballots without any finalists.
+Candidate B got the least votes.
+
+
+ROUND 3 
+
+Candidate E received 3376 votes.
+Candidate A received 3343 votes.
+Candidate C received 3284 votes.
+Total: 10003
+
+Candidate C got the least votes.
+
+
+ROUND 4 
+
+Candidate E received 5002 votes.
+Candidate A received 5000 votes.
+Total: 10002
+Candidate E has won with a majority: 50.00999800039992 %.
+
+E, A were the finalists.
+10005 first-round ballots cast.
+3 voters cast ballots without any finalists.
 ```
