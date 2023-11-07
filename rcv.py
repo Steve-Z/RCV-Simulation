@@ -108,12 +108,12 @@ class RCV:
                     threshold=threshold
                 )
 
-        else:
-            print(
-                "Candidate",
-                first,
-                "has won with a majority:",
-                str(d[first] * 100 / len(ballots)),
-                "%.\n")
+            else:
+                print(
+                    "Candidate",
+                    first,
+                    "has won with a majority:",
+                    str(d[first] * 100 / len(ballots)),
+                    "%.\n")
 
         return d
