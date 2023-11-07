@@ -59,12 +59,15 @@ class RCV:
         rnd=1,
         d=None,
         ballots=None,
+        threshold=None,
     ):
         """Allocate 2nd choices for last place candidate.
 
         Runs recursively until there is a majority winner.
         """
-        if (d[first] / len(ballots)) <= 0.5:
+        if not threshold:
+            threshold = len(ballots) * 0.5
+        if d[first] <= threshold:
             print("\nCandidate", last, "got the least votes.\n")
             print("\nROUND", rnd, "\n")
 
@@ -95,13 +98,14 @@ class RCV:
                 print("Candidate", k, "received", v, "votes.")
             print("Total:", sum(e.values()))
 
-            if len(d.keys()) > 1:
+            if len(d.keys()) > 2:
                 self.runoff(
                     first=first,
                     last=last,
                     rnd=rnd,
                     d=d,
-                    ballots=ballots
+                    ballots=ballots,
+                    threshold=threshold
                 )
 
         else:
