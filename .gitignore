@@ -10,3 +10,5 @@ __pycache__/
 
 *.ipynb
 .ipynb_checkpoints/
+
+minnetonka_2021.py
