@@ -1,3 +1,6 @@
+# New: Real World Data from Minnetonka, MN
+A friend who lives in Minnetonka, upon hearing that I am an RCV advocate, asked if I could confirm the RCV results from asingle-seat city council election in 2021 using publicly available raw spreadsheet data. He was frustrated that he could not reproduce the results using the spreadsheet. Using these Python methods, I obtained nearly identical results compared to the published summary. See `minnetonka_2021.py`.
+
 # RCV-Simulation
 A module and sample script for simulating a Ranked Choice Voting, a.k.a, Instant Runoff election
 
