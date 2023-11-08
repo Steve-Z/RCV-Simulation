@@ -10,6 +10,3 @@ __pycache__/
 
 *.ipynb
 .ipynb_checkpoints/
-
-# Special case
-minnetonka_2021.py
