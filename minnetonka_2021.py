@@ -9,7 +9,8 @@ from Minnetonka, MN single-seat election for city council.
 The data was obtained from
 https://www.minnetonkamn.gov/home/showpublisheddocument/9848/637716260998730000.
 Results obtained from running this script can be compared with the published
-results at https://www.minnetonkamn.gov/home/showpublisheddocument/9902/637721487821600000
+results at
+https://www.minnetonkamn.gov/home/showpublisheddocument/9902/637721487821600000
 """
 
 
@@ -42,7 +43,13 @@ for k, v in round1[0].items():
 print("Total:", sum(round1[0].values()))
 
 d = r.runoff(
-    first=round1[1], last=round1[2], d=round1[0], rnd=2, ballots=ballots, threshold=5096)
+    first=round1[1],
+    last=round1[2],
+    d=round1[0],
+    rnd=2,
+    ballots=ballots,
+    threshold=5096
+)
 print(', '.join(list(d)), "were the finalists.")
 print(len(originals), "first-round ballots cast.")
 
